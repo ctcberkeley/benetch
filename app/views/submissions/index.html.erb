@@ -4,22 +4,35 @@
 <table>
 	<tr>
 		<th>Text File </th>
+    <th>Date/Time Created</th>
+    <th>Uploaded By</th>
 		<th>Recording </th>
-		<th>Date</th>
-		<th>User</th>
+    <th>Date/Time Recorded</th>
+    <th>Recorded By</th>
 	</tr>
 
 
 	<% @submissions.each do |submission| %>
     <tr>
       <td><%= submission.text %></td>
-      <td><% if submission.recording.nil?  %>
-      		<%= link_to 'Add Recording', edit_submission_path(submission) %>
-      		 <% else %> 
-      		<%=	"Display recording" %>    
-      		  <% end %>  </td>
-      <td> Date </td>
+      <td><%= submission.created_at.to_formatted_s %> </td>
       <td> User </td>
+      <td><% if submission.recording.nil?  %>
+          <%= link_to 'Add Recording', edit_submission_path(submission) %>
+           <% else %> 
+          <%= "Display recording" %>    
+            <% end %>  </td>
+      <td><% if submission.recording.nil?  %>
+          <%= "N/A" %>
+           <% else %> 
+          <%= submission.updated_at.to_formatted_s %>   
+            <% end %>  </td>
+      <td><% if submission.recording.nil?  %>
+          <%= "N/A" %>
+           <% else %> 
+          <%= submission.updated_at.to_formatted_s %>   
+            <% end %>  </td>
+   
       <td> <%= link_to 'View', submission_path(submission) %> </td>
       <td><%= link_to 'Destroy', submission_path(submission),
                     method: :delete, data: { confirm: 'Are you sure?' } %></td>
