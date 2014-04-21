@@ -1,0 +1,36 @@
+<h1> Create Submission </h1>
+
+<h2> Copy and Paste </h2>
+
+<%= form_for :submission, url: submissions_path do |f| %>
+  <% if @submission.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@submission.errors.count, "error") %> prohibited
+      this submission from being saved:</h2>
+    <ul>
+    <% @submission.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+  <% end %>
+  <p>
+    <%= f.label :text %><br>
+    <%= f.text_area :text %>
+  </p>
+
+  <p> OR </p>
+
+	<h2> Upload a .txt file </h2>
+ 
+  <p>
+    <%= f.submit 'Record Voiceover'%>
+    <%= f.submit 'Save Without Recording'%>
+  </p>
+<% end %>
+
+
+
+
+
+<p> <%= link_to "Cancel", submissions_path %> </p>

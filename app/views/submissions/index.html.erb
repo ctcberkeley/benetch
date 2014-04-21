@@ -1,4 +1,6 @@
-<h1>Submissions#index</h1>
+<h1>All Submissions</h1>
+
+<%= link_to 'Make New Submission', new_submission_path %> 
 <table>
 	<tr>
 		<th>Text File </th>
@@ -8,4 +10,19 @@
 	</tr>
 
 
-<table>
+	<% @submissions.each do |submission| %>
+    <tr>
+      <td><%= submission.text %></td>
+      <td><% if submission.recording.nil?  %>
+      		<%= link_to 'Add Recording', edit_submission_path(submission) %>
+      		 <% else %> 
+      		<%=	"Display recording" %>    
+      		  <% end %>  </td>
+      <td> Date </td>
+      <td> User </td>
+      <td> <%= link_to 'View', submission_path(submission) %> </td>
+      <td><%= link_to 'Destroy', submission_path(submission),
+                    method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+    <% end %>
+</table>
