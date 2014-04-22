@@ -1,6 +1,6 @@
+<script type="text/javascript" src="reader.js"></script>
 <h1> Create Submission </h1>
 
-<h2> Copy and Paste </h2>
 
 <%= form_for :submission, url: submissions_path do |f| %>
   <% if @submission.errors.any? %>
@@ -14,14 +14,20 @@
     </ul>
   </div>
   <% end %>
+
+
+
+	<h2> Upload a .txt file or copy and paste</h2>
+  <div id="form_container">
+      Select a text file: 
+      <input type="file" id="fileInput">
+  </div>
+
   <p>
     <%= f.label :text %><br>
-    <%= f.text_area :text %>
+    <%= f.text_area :text , id: "populate" %>
   </p>
 
-  <p> OR </p>
-
-	<h2> Upload a .txt file </h2>
  
   <p>
     <%= f.submit 'Record Voiceover'%>
