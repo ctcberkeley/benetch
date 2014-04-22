@@ -36,9 +36,9 @@ http_basic_authenticate_with name: "benetech", password: "admin", only: :destroy
 	  @submission = Submission.find(params[:id])
 	 
 	  if @submission.update(submission_params)
-	    redirect_to @article
+	    redirect_to @submission
 	  else
-	    render 'edit'
+	    redirect_to edit_submission_path(@submission)
 	  end
 	end
 
@@ -54,6 +54,7 @@ private
   def submission_params
     params.require(:submission).permit(:title, :text, :recording, :textuser, :audiouser)
   end
+
 
 
 

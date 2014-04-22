@@ -22,14 +22,10 @@
            <% else %> 
           <%= "Display recording" %>    
             <% end %>  </td>
-      <td><% if submission.recording.nil?  %>
-          <%= "N/A" %>
-           <% else %> 
-          <%= submission.updated_at.to_formatted_s %>   
+      <td><% if !submission.recording.nil?  %>
+          <%= submission.updated_at.to_formatted_s %>
             <% end %>  </td>
-      <td><% if submission.recording.nil?  %>
-          <%= "N/A" %>
-           <% else %> 
+      <td><% if !submission.recording.nil?  %>
           <%= submission.audiouser %>   
             <% end %>  </td>
    

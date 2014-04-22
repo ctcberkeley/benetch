@@ -1,11 +1,24 @@
-<h1> Displaying Submission </h1>
+<h1> <%= @submission.title %> </h1>
+
+
+<p> Text uploaded by: <%= @submission.textuser %> at 
+     <%= @submission.created_at %> </p>
+
 
 
 <h2> Text </h2>
 <p><%= @submission.text %></p>
 
-<h2> Sound File </h2>
 
+
+<h2> Audio File </h2>
+
+
+
+<p><% if !@submission.recording.nil?  %>
+    Audio recorded by <%= @submission.audiouser %>
+    at <%= @submission.updated_at.to_formatted_s %> 
+    <% end %>  </p>
 
 
 

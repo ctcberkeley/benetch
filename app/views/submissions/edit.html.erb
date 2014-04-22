@@ -1,4 +1,32 @@
 <h1> Add Recording </h1>
 
 
+<%= form_for :submission, url: submission_path(@submission), method: :patch do |f| %>
+  <% if @submission.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@submission.errors.count, "error") %> prohibited
+      this submission from being saved:</h2>
+    <ul>
+    <% @submission.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+  <% end %>
+
+  <p>
+    <%= f.label "Username" %>
+    <%= f.text_field :audiouser %>
+  </p>
+
+
+
+
+  <p><%= f.submit "Save Recording" %> </p>
+
+
+<% end %>
+
+
+
 <p><%= link_to "Cancel Recording", submissions_path%> </p>
