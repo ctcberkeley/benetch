@@ -18,6 +18,5 @@ window.onload = function() {
 
 	function updateText(text) {
 		document.getElementById("populate").value = text;
-		alert("here");
 	}
 }

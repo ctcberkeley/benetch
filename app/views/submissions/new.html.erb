@@ -15,7 +15,15 @@
   </div>
   <% end %>
 
+  <p>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </p>
 
+  <p>
+    <%= f.label "Username" %>
+    <%= f.text_field :textuser %>
+  </p>
 
 	<h2> Upload a .txt file or copy and paste</h2>
   <div id="form_container">
@@ -27,6 +35,8 @@
     <%= f.label :text %><br>
     <%= f.text_area :text , id: "populate" %>
   </p>
+
+
 
  
   <p>

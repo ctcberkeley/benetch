@@ -3,7 +3,7 @@
 <%= link_to 'Make New Submission', new_submission_path %> 
 <table>
 	<tr>
-		<th>Text File </th>
+		<th>Title </th>
     <th>Date/Time Created</th>
     <th>Uploaded By</th>
 		<th>Recording </th>
@@ -14,9 +14,9 @@
 
 	<% @submissions.each do |submission| %>
     <tr>
-      <td><%= submission.text %></td>
+      <td><%= submission.title %></td>
       <td><%= submission.created_at.to_formatted_s %> </td>
-      <td> User </td>
+      <td><%= submission.textuser %></td>
       <td><% if submission.recording.nil?  %>
           <%= link_to 'Add Recording', edit_submission_path(submission) %>
            <% else %> 
@@ -30,7 +30,7 @@
       <td><% if submission.recording.nil?  %>
           <%= "N/A" %>
            <% else %> 
-          <%= submission.updated_at.to_formatted_s %>   
+          <%= submission.audiouser %>   
             <% end %>  </td>
    
       <td> <%= link_to 'View', submission_path(submission) %> </td>

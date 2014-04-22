@@ -52,7 +52,7 @@ http_basic_authenticate_with name: "benetech", password: "admin", only: :destroy
  
 private
   def submission_params
-    params.require(:submission).permit(:text, :recording)
+    params.require(:submission).permit(:title, :text, :recording, :textuser, :audiouser)
   end
 
 
