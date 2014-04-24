@@ -1,4 +1,5 @@
-window.onload = function() {
+var ready;
+ready = function() {
 	var fileInput = document.getElementById('fileInput');
 	var fileDisplayArea = document.getElementById('fileDisplayArea');
 	fileInput.addEventListener('change', function(e) {
@@ -12,7 +13,7 @@ window.onload = function() {
 			}
 			reader.readAsText(file);
 		} else {
-			fileDisplayArea.innerText = "File not supported!"
+			fileDisplayArea.innerText = "File not supported!";
 		}
 	});
 
@@ -20,3 +21,5 @@ window.onload = function() {
 		document.getElementById("populate").value = text;
 	}
 }
+$(document).ready(ready);
+$(document).on('page:load', ready);
