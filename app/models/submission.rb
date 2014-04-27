@@ -6,7 +6,7 @@ class Submission < ActiveRecord::Base
 
 
  def recording_to_file
-     File.open(:title, "w") do |f|
+     File.open(:title, "wb") do |f|
        f.write(:recording)
      end
    end

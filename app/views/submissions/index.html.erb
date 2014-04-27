@@ -20,7 +20,7 @@
       <td><% if submission.recording.nil?  %>
           <%= link_to 'Add Recording', edit_submission_path(submission) %>
            <% else %> 
-          <%= "Display recording" %>    
+           <%= link_to 'View', submission_path(submission) %>  
             <% end %>  </td>
       <td><% if !submission.recording.nil?  %>
           <%= submission.updated_at.to_formatted_s %>

@@ -19,7 +19,7 @@
     Audio recorded by <%= @submission.audiouser %>
     at <%= @submission.updated_at.to_formatted_s %> 
 
-    <% newFile = File.open("#{@submission.title}.mp3", "wb") do |f| %>
+    <% newFile = File.open("#{@submission.title}.wav", "wb") do |f| %>
     <%   f.write(@submission.recording) %>
     <% end %>
 

@@ -39,8 +39,28 @@
 	recorder.stop();
 	recorder.exportWAV(function(s) {
 	  audio.src = window.URL.createObjectURL(s);
+    sendWaveToPost(s);
+
 	});
-  }
+}
+
+  function sendWaveToPost1(blob) {
+            alert('in');
+        var data = new FormData();
+
+            data.append("audio", blob, (new Date()).getTime() + ".wav");
+
+            var oReq = new XMLHttpRequest();
+            oReq.open("PATCH", "/submissions/save_file");
+            oReq.send(data);
+            oReq.onload = function(oEvent) {
+                if (oReq.status == 200) {
+                    console.log("Uploaded");
+                } else {
+                    console.log("Error " + oReq.status + " occurred uploading your file.");
+                }
+            };
+        }
 </script>
 
 
@@ -66,8 +86,9 @@
   <h3> Upload Recording or Record Audio </h3>
   <p> 
     <%= f.label "Upload Recording" %>
-    <%= f.file_field :recording, id: "file_field"%>
+    <%= f.file_field :recording , id: "save"%>
   </p>
+
 
   <h4>Begin Audio Recording</h4>
 

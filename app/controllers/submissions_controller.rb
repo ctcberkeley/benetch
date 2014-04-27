@@ -34,14 +34,22 @@ http_basic_authenticate_with name: "benetech", password: "admin", only: :destroy
 
 
   	def update
-	  @submission = Submission.find(params[:id])
-	  @submission.recording = params[:submission][:recording].read
+  		
+	   @submission = Submission.find(params[:id])
 	  
+	  @submission.recording = params[:submission][:recording].read
 	  if @submission.update(params[:submission].permit(:audiouser))
 	    redirect_to @submission
 	  else
 	    redirect_to edit_submission_path(@submission)
 	  end
+	end
+
+	def save_file
+		render :txt=> 'here'
+    	@submission = Submission.find(params[:id])
+    	@submission.recording = params[:submission][:recording].read
+    	render :txt2=> 'hi'
 	end
 
 

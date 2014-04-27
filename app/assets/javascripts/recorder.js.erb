@@ -113,6 +113,11 @@ DEALINGS IN THE SOFTWARE.
     link.download = filename || 'output.wav';
   }
 
+  Recorder.setupRecording = function(blob, filename){
+    var link = document.getElementById("save");
+    link.value = blob;
+  }
+
   window.Recorder = Recorder;
 
 })(window);
