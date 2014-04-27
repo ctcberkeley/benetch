@@ -4,4 +4,12 @@ class Submission < ActiveRecord::Base
     validates :title, presence: true,
                     length: { minimum: 3 }
 
+
+ def recording_to_file
+     File.open(:title, "w") do |f|
+       f.write(:recording)
+     end
+   end
+
+
 end

@@ -18,7 +18,18 @@
 <p><% if !@submission.recording.nil?  %>
     Audio recorded by <%= @submission.audiouser %>
     at <%= @submission.updated_at.to_formatted_s %> 
-    <% end %>  </p>
+
+    <% newFile = File.open("#{@submission.title}.mp3", "wb") do |f| %>
+    <%   f.write(@submission.recording) %>
+    <% end %>
+
+    <p>
+	    <%= newFile.zero? %>
+	</p>
+    <%end %>
+</p>
+
+
 
 
 
