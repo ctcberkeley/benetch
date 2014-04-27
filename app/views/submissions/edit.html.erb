@@ -1,13 +1,16 @@
-<script type="text/javascript" src="recorder.js"></script>
-<script type="text/javascript" src="recorderWorker.js"></script>
+<%= javascript_include_tag 'recorderWorker.js.erb' %>
+<%= javascript_include_tag 'recorder.js.erb' %>
 <h1> Add Recording </h1>
 <audio controls autoplay></audio>
 
 <input onclick="startRecording()" type="button" value="start recording" />
 <input onclick="stopRecording()" type="button" value="stop recording and play" />
 
-<% content_for :head do %>
-<script type = "text/javascript">
+<head>
+  <%= yield :head %>
+</head>
+
+<script>
   var onFail = function(e) {
 	console.log('Rejected!', e);
   };
@@ -43,11 +46,6 @@
 	});
   }
 </script>
-<% end %>
-
-<head>
-  <%= yield :head %>
-</head>
 
 <%= form_for :submission, url: submission_path(@submission), method: :patch do |f| %>
   <% if @submission.errors.any? %>
