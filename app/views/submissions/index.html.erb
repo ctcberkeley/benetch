@@ -1,6 +1,10 @@
-<h1>All Submissions</h1>
-
-<%= link_to 'Make New Submission', new_submission_path %> 
+<link rel="stylesheet" type="text/css" src="table_style.css">
+<div id="arrow">
+  <%= link_to '<- Make New Submission', new_submission_path %>
+</div>
+<div id="title_container">
+  <h1>All Submissions</h1>
+</div>
 <table>
 	<tr>
 		<th>Title </th>
@@ -9,12 +13,18 @@
 		<th>Recording </th>
     <th>Date/Time Recorded</th>
     <th>Recorded By</th>
+    <th>Delete</th>
 	</tr>
 
 
 	<% @submissions.each do |submission| %>
-    <tr>
-      <td><%= submission.title %></td>
+    
+    <tr>      
+      <td>
+      <%= link_to submission_path(submission) do %>
+      <%= submission.title %>
+      <% end %>
+      </td>
       <td><%= submission.created_at.to_formatted_s %> </td>
       <td><%= submission.textuser %></td>
       <td><% if submission.recording.nil?  %>
@@ -28,10 +38,8 @@
       <td><% if !submission.recording.nil?  %>
           <%= submission.audiouser %>   
             <% end %>  </td>
-   
-      <td> <%= link_to 'View', submission_path(submission) %> </td>
-      <td><%= link_to 'Destroy', submission_path(submission),
+      <td><%= link_to 'Delete', submission_path(submission),
                     method: :delete, data: { confirm: 'Are you sure?' } %></td>
     </tr>
-    <% end %>
+  <% end %>
 </table>

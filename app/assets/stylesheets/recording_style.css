@@ -1,0 +1,22 @@
+body {
+	background-color: #EAD3A8;
+	font-family: "Courier New", Courier, monospace;
+}
+#title_container {
+	width:1000px;
+	height:80px;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 200px;
+	font-size: 25px;
+}
+#content_container {
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}
+#arrow a {
+	text-decoration: none;
+	font-size: 20px;
+}

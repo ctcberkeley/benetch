@@ -1,6 +1,11 @@
 <%= javascript_include_tag 'recorderWorker.js.erb' %>
 <%= javascript_include_tag 'recorder.js.erb' %>
-<h1> Add Recording </h1>
+<div id="arrow">
+  <%= link_to "<- Cancel", submissions_path%>
+</div>
+<div id="title_container">
+  <h1> Add Recording </h1>
+</div>
 
 <head>
   <%= yield :head %>
@@ -44,7 +49,7 @@
 	});
 }
 
-  function sendWaveToPost1(blob) {
+  function sendWaveToPost(blob) {
             alert('in');
         var data = new FormData();
 
@@ -64,7 +69,7 @@
 </script>
 
 
-
+<div id="content_container">
 <%= form_for :submission, url: submission_path(@submission), method: :patch do |f| %>
   <% if @submission.errors.any? %>
   <div id="error_explanation">
@@ -77,17 +82,21 @@
     </ul>
   </div>
   <% end %>
-
-   <p>
-    <%= f.label "Username" %>
-    <%= f.text_field :audiouser %>
-  </p>
-
-  <h3> Upload Recording or Record Audio </h3>
-  <p> 
-    <%= f.label "Upload Recording" %>
-    <%= f.file_field :recording , id: "save"%>
-  </p>
+  <div id="username">
+    <p>
+      <%= f.label "Username" %>
+      <%= f.text_field :audiouser %>
+    </p>
+  </div>
+  <div id="audio_upload_container">
+    <div id="audio_upload_button">
+      <h3> Upload Recording or Record Audio </h3>
+      <p> 
+        <%= f.label "Upload Recording" %>
+        <%= f.file_field :recording , id: "save"%>
+      </p>
+    </div>
+  </div>
 
 
   <h4>Begin Audio Recording</h4>
@@ -114,5 +123,4 @@
 
 
 <% end %>
-
-<p><%= link_to "Cancel Recording", submissions_path%> </p>
+</div>

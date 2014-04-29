@@ -1,0 +1,59 @@
+body {
+	background-color: #EAD3A8;
+	font-family: "Courier New", Courier, monospace;
+}
+#title_container {
+	width:1000px;
+	height:80px;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 200px;
+	font-size: 25px;
+}
+#input_container_container {
+	margin-left: auto;
+	margin-right: auto;
+	width:505px;
+	height: 50px;
+}
+.input_container {
+	float: left;
+	margin-left:10px;
+	margin-right:10px;
+}
+#upload_text {
+	width:600px;
+	margin-right: auto;
+	margin-left: auto;
+	text-align: center;
+	margin-top: 50px;
+}
+#form_container {
+	text-align: center;
+	width:445px;
+	margin-left: 115px;	
+}
+#form_container2 {
+	width: 400px;
+	margin-left: auto;
+	margin-right: auto;
+}
+#populate {
+	width: 400px;
+	height: 100px;
+	margin-top: 10px;
+}
+#button_container {
+	margin-right: auto;
+	margin-left: auto;
+	width:400px;
+	text-align: center;
+}
+#arrow {
+	font-size: 20px;
+}
+#arrow a {
+	text-decoration: none;
+	color: black;
+}

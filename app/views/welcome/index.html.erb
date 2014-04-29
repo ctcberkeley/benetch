@@ -1,3 +1,11 @@
-<h1>Welcome to Benetech Recorder version 1.1 Alpha!</h1>
-<%= link_to "Make a new recording/Upload a text file", new_submission_path %>
-<p> <%= link_to "View all submissions",  controller: "submissions" %> </p>
+<link rel="stylesheet" type="text/css" src="homepage.css">
+<div id="title_container"><h1>Benetech Voice Recorder</h1></div>
+<div id="buttons_container">
+<%= link_to new_submission_path do %>
+<div id="link_button1" class="link_button">Upload
+</div>
+<% end %>
+<%= link_to controller: "submissions" do %>
+<div id="link_button2" class="link_button">View All</div>
+<% end %>
+</div>

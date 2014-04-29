@@ -1,17 +1,22 @@
-<h1> <%= @submission.title %> </h1>
+<link rel="stylesheet" type="text/css" src="submission_style.css">
+<div id="arrow">
+  <%= link_to "<- Back to recordings", submissions_path %>
+</div>
+<div id="title_container">
+    <h1> <%= @submission.title %> </h1>
+</div>
 
-
-<p> Text uploaded by: <%= @submission.textuser %> at 
-     <%= @submission.created_at %> </p>
-
-
-
-<h2> Text </h2>
-<p><%= simple_format(@submission.text) %></p>
-
-
-
-<h2> Audio File </h2>
+<div id="content_div">
+    <div class="text_container">
+        <h2> Author </h2>
+        <%= @submission.textuser %>
+    </div>
+    <div class="text_container">
+        <h2> Text </h2>
+        <p><%= simple_format(@submission.text) %></p>
+    </div>
+    <div class="text_container">
+        <h2> Audio File </h2>
 
 
 
@@ -28,10 +33,9 @@
 	</p>
     <%end %>
 </p>
-
-
-
-
-
-
-<p><%= link_to "Back to all recordings", submissions_path %></p>
+</div>
+<div class="text_container">
+    <h2> Timestamp </h2>
+    <%= @submission.created_at %>
+</div>
+</div>
