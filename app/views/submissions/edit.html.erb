@@ -82,44 +82,34 @@
     </ul>
   </div>
   <% end %>
-  <div id="username">
+  <div id="text">
+    <h3> Text </h3>
+    <p>
+      <%= simple_format(@submission.text)%>
+    </p>
+
+  </div>
+  <div id="audio_upload_container">
     <p>
       <%= f.label "Username" %>
       <%= f.text_field :audiouser %>
     </p>
-  </div>
-  <div id="audio_upload_container">
-    <div id="audio_upload_button">
       <h3> Upload Recording or Record Audio </h3>
-      <p> 
+      <div id="upload_rec"> 
         <%= f.label "Upload Recording" %>
         <%= f.file_field :recording , id: "save"%>
-      </p>
-    </div>
-  </div>
-
-
-  <h4>Begin Audio Recording</h4>
-
-
+      </div>
 
   <audio controls autoplay></audio>
-
+  <div id="button_container">
   <input onclick="startRecording()" type="button" value="start recording" />
   <input onclick="stopRecording()" type="button" value="stop recording and play" />
-
-
-  
-
-  <h3> Text </h3>
-  <p>
-    <%= simple_format(@submission.text)%>
-  </p>
-
+  </div>
 
   <p>
     <%= f.submit "Save Recording to Database" %> 
   </p>
+  </div>
 
 
 <% end %>
