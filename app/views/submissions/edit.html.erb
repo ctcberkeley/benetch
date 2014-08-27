@@ -3,6 +3,9 @@
 <div id="arrow">
   <%= link_to "<- Cancel", submissions_path%>
 </div>
+<p id="identification">
+  <%= @submission.id %>
+</p>
 <div id="title_container">
   <h1> Add Recording </h1>
 </div>
@@ -15,6 +18,8 @@
   var onFail = function(e) {
 	console.log('Rejected!', e);
   };
+
+  var userRecording = null;
 
   var onSuccess = function(s) {
 	var context = new webkitAudioContext();
@@ -44,61 +49,68 @@
 	recorder.stop();
 	recorder.exportWAV(function(s) {
 	  audio.src = window.URL.createObjectURL(s);
-    sendWaveToPost(s);
-
+    stageRecording(s);
 	});
 }
 
-  function sendWaveToPost(blob) {
-            alert('in');
-        var data = new FormData();
+  function stageRecording(blob) {
+    userRecording = blob;
+  }
 
-            data.append("audio", blob, (new Date()).getTime() + ".wav");
-
-            var oReq = new XMLHttpRequest();
-            oReq.open("PATCH", "/submissions/save_file");
-            oReq.send(data);
-            oReq.onload = function(oEvent) {
-                if (oReq.status == 200) {
-                    console.log("Uploaded");
-                } else {
-                    console.log("Error " + oReq.status + " occurred uploading your file.");
-                }
-            };
+  function sendWaveToPost() {
+            var data = new FormData(document.getElementById("audio_form"));
+            var id = document.getElementById('identification').innerHTML;
+            id = id.replace(/\s/g, '');
+            if (userRecording != null) {
+              data.append("audio", userRecording, (new Date()).getTime() + ".wav");
+          }
+            data.append("id", id.toString());
+            var str1 = "/submissions/";
+            $.ajax({ url: str1.concat(id).concat("?format=json"),
+                    type: 'PATCH',
+                    beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+                    data: data,
+                    processData: false,
+                    contentType: false,
+                    success: function(response) {
+                      alert(response.message);
+                      window.location = document.URL.replace('edit', '');
+                    }
+            });
+            
         }
+
+
 </script>
 
 
 <div id="content_container">
-<%= form_for :submission, url: submission_path(@submission), method: :patch do |f| %>
-  <% if @submission.errors.any? %>
-  <div id="error_explanation">
-    <h2><%= pluralize(@submission.errors.count, "error") %> prohibited
-      this submission from being saved:</h2>
-    <ul>
-    <% @submission.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-    </ul>
-  </div>
-  <% end %>
+
   <div id="text">
+
+
     <h3> Text </h3>
     <p>
       <%= simple_format(@submission.text)%>
     </p>
+  
 
   </div>
+  <h4> Enter Username and then record or upload recording </h4>
   <div id="audio_upload_container">
-    <p>
-      <%= f.label "Username" %>
-      <%= f.text_field :audiouser %>
-    </p>
-      <h3> Upload Recording or Record Audio </h3>
-      <div id="upload_rec"> 
-        <%= f.label "Upload Recording" %>
-        <%= f.file_field :recording , id: "save"%>
-      </div>
+    <form id="audio_form" enctype="multipart/form-data">
+      Username: <input type="text" id="userbox" name="user"><br><br>
+      File <input type="file" accept=".wav" id="audio_file" name="audio_file">
+    </form>
+   
+    <ol> To Record:
+     <li> Click "start recording" (and click "Allow" on your browser if necessary)</li>
+     <li> Speak clearly into your machine's microphone</li>
+     <li> Click "stop recording and play" to hear your recording</li>
+     <li> Click "save recording" if you are satisfied with your recording. Otherwise, click "start recording" to record again </li>
+    </ol>
+
+
 
   <audio controls autoplay></audio>
   <div id="button_container">
@@ -106,11 +118,8 @@
   <input onclick="stopRecording()" type="button" value="stop recording and play" />
   </div>
 
-  <p>
-    <%= f.submit "Save Recording to Database" %> 
-  </p>
+
+    <input onclick="sendWaveToPost()" type="button" value="Save recording" />
   </div>
 
-
-<% end %>
 </div>

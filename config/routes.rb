@@ -3,7 +3,8 @@ Benetech::Application.routes.draw do
   
   resources :submissions
 
-  patch 'submissions/save_file/:id', to: 'submissions#save_file'
+  get 'submissions/:id/download_audio', to: 'submissions#download_audio'
+
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

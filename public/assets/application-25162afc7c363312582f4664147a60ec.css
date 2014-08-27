@@ -1,0 +1,244 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+
+
+ */
+
+body {
+	background-color: #EAD3A8;
+	font-family: "Courier New", Courier, monospace;
+}
+#title_container {
+	width:1000px;
+	height:80px;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 200px;
+	font-size: 25px;
+}
+#buttons_container {
+	width: 720px;
+	margin-top: 180px;
+	margin-left:auto;
+	margin-right:auto;
+	font-size: 20px;
+}
+.link_button a {
+	color: black;
+	text-decoration: none;
+}
+.link_button {
+	width:198px;
+	height:40px;
+	line-height: 40px;
+	text-align: center;
+	float:left;
+	border-bottom-left-radius: 20px;
+	border-bottom-right-radius: 20px;
+	border-top-left-radius: 20px;
+	border-top-right-radius: 20px;
+	border:solid black 1px;
+	margin-left: 80px;
+	margin-right: 80px;
+	text-decoration: none;
+	color: black;
+	font-size: 22px;
+}
+.link_button:hover {
+	background-color: black;
+	color: white;
+}
+body {
+	background-color: #EAD3A8;
+	font-family: "Courier New", Courier, monospace;
+}
+#title_container {
+	width:1000px;
+	height:80px;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 200px;
+	font-size: 25px;
+}
+#content_container {
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}
+#arrow a {
+	text-decoration: none;
+	font-size: 20px;
+}
+#content_container {
+	width: 1200px;
+	margin-right: auto;
+	margin-left: auto;
+}
+#text {
+	float: left;
+	width: 50%;
+	margin-left: 0px;
+}
+#audio_upload_container {
+	width: 45%;
+	float: left;
+	border-left: 1px solid black;
+}
+#button_container {
+	margin-top: 20px;
+}
+#upload_rec {
+	margin-left: 60px;
+	margin-bottom: 20px;
+}
+#identification {
+	visibility: hidden;
+	display: none;
+}
+body {
+	background-color: #EAD3A8;
+	font-family: "Courier New", Courier, monospace;
+}
+#title_container {
+	width:1000px;
+	height:80px;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 200px;
+	font-size: 25px;
+}
+#content_div {
+	margin-left: auto;
+	margin-right: auto;
+	width: 400px;
+	text-align: center;
+}
+.text_container {
+	margin-bottom: 45px;
+	margin-top: 40px;
+}
+#arrow {
+	font-size: 20px;
+}
+#arrow a {
+	text-decoration: none;
+	color: black;
+}
+body {
+	background-color: #EAD3A8;
+	font-family: "Courier New", Courier, monospace;
+}
+#title_container {
+	width:1000px;
+	height:80px;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 200px;
+	font-size: 25px;
+}
+table {
+	margin-left: auto;
+	margin-right: auto;
+	border-collapse: collapse;
+	border-spacing: 1px;
+	margin-top: 40px;
+}
+td {
+	border: solid black 1px;
+	width: 200px;
+}
+tr:hover {
+	background-color: black;
+	color: white;
+}
+tr:hover td {
+	border-left: solid white 1px;
+	border-right: solid white 1px;
+	border-bottom: solid black 1px;
+	border-top: solid black 1px;
+}
+tr:hover td a {
+	color: white;
+}
+a {
+	color: black;
+}
+#arrow a {
+	text-decoration: none;
+	font-size: 20px;
+}
+th {
+	color:white;
+	background-color: black;
+}
+body {
+	background-color: #EAD3A8;
+	font-family: "Courier New", Courier, monospace;
+}
+#title_container {
+	width:1000px;
+	height:80px;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 200px;
+	font-size: 25px;
+}
+#input_container_container {
+	margin-left: auto;
+	margin-right: auto;
+	width:505px;
+	height: 50px;
+}
+.input_container {
+	float: left;
+	margin-left:10px;
+	margin-right:10px;
+}
+#upload_text {
+	width:600px;
+	margin-right: auto;
+	margin-left: auto;
+	text-align: center;
+	margin-top: 50px;
+}
+#form_container {
+	text-align: center;
+	width:445px;
+	margin-left: 115px;	
+}
+#form_container2 {
+	width: 400px;
+	margin-left: auto;
+	margin-right: auto;
+}
+#populate {
+	width: 400px;
+	height: 100px;
+	margin-top: 10px;
+}
+#button_container {
+	margin-right: auto;
+	margin-left: auto;
+	width:400px;
+	text-align: center;
+}
+#arrow {
+	font-size: 20px;
+}
+#arrow a {
+	text-decoration: none;
+	color: black;
+}

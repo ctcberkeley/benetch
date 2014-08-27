@@ -42,3 +42,6 @@ body {
 	margin-left: 60px;
 	margin-bottom: 20px;
 }
+#identification {
+	display: none;
+}

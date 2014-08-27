@@ -23,14 +23,10 @@
 <p><% if !@submission.recording.nil?  %>
     Audio recorded by <%= @submission.audiouser %>
     at <%= @submission.updated_at.to_formatted_s %> 
-
-    <% newFile = File.open("#{@submission.title}.wav", "wb") do |f| %>
-    <%   f.write(@submission.recording) %>
-    <% end %>
-
+    
     <p>
-	    <%= newFile.zero? %>
-	</p>
+        <%= link_to "Download Recording", "/submissions/#{@submission.id}/download_audio"  %>
+    </p>
     <%end %>
 </p>
 </div>
